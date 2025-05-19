@@ -58,6 +58,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+arm64_env/
 
 # MyPy
 .mypy_cache/
