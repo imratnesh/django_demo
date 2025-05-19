@@ -9,6 +9,8 @@ A modern Django-based web application that demonstrates best practices in Django
 - Easy to extend and maintain
 - Well-documented code
 - Test coverage
+- Automated cron jobs for time-based tasks
+- Custom management commands for utility operations
 
 ## 📋 Prerequisites
 
@@ -59,11 +61,15 @@ django_demo/
 ├── api/                    # API application
 │   ├── migrations/        # Database migrations
 │   ├── management/        # Custom management commands
+│   │   └── commands/     # Command implementations
 │   ├── tests.py          # Test cases
 │   ├── views.py          # API views
 │   └── urls.py           # URL routing
-├── manage.py             # Django management script
-└── requirements.txt      # Project dependencies
+├── sample/               # Main project configuration
+│   ├── cron.py          # Cron job definitions
+│   └── utils.py         # Utility functions
+├── manage.py            # Django management script
+└── requirements.txt     # Project dependencies
 ```
 
 ## 🎯 Usage
@@ -72,6 +78,50 @@ django_demo/
 
 - `GET /api/`: List all available endpoints
 - More endpoints will be documented here
+
+### Custom Management Commands
+
+The project includes custom management commands for utility operations:
+
+1. **Add Numbers**
+   ```bash
+   python manage.py add_number <num1> <num2>
+   ```
+   Adds two numbers and displays the result.
+   Example:
+   ```bash
+   python manage.py add_number 3 4
+   # Output: 7
+   ```
+
+2. **Query Prompt**
+   ```bash
+   python manage.py query_prompt "<your query>"
+   ```
+   Processes a query and returns an answer using the utility function.
+   Example:
+   ```bash
+   python manage.py query_prompt "What is the weather?"
+   ```
+
+### Cron Jobs
+
+The project includes automated cron jobs for time-based tasks:
+
+1. **FetchTimeCronJob**: Runs every minute to fetch and process current time data
+   ```bash
+   python manage.py runcrons
+   ```
+
+2. To run all cron jobs:
+   ```bash
+   python manage.py runcrons
+   ```
+
+3. To run a specific cron job:
+   ```bash
+   python manage.py runcrons sample.fetch_time_cron
+   ```
 
 ### Development
 
@@ -101,8 +151,8 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## 👥 Author
 
 **Your Name**
-- LinkedIn: [Your LinkedIn Profile](https://linkedin.com/in/yourprofile)
-- YouTube: [Your YouTube Channel](https://youtube.com/@yourchannel)
+- LinkedIn: [Your LinkedIn Profile](linkedin.com/in/ratneshkushwaha/)
+- YouTube: [Your YouTube Channel](https://www.youtube.com/@IndiaAnalytical)
 
 ## 🙏 Acknowledgments
 
